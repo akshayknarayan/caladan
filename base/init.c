@@ -16,7 +16,11 @@ void __weak init_shutdown(int status)
 {
 	log_info("init: shutting down -> %s",
 		 status == EXIT_SUCCESS ? "SUCCESS" : "FAILURE");
-	exit(status);
+    // This is commented to avoid crashing the whole process. 
+    // TODO have another guard in the runtime function that we drop at the end of main()
+    // instead of when io is done
+	// exit(status);
+    while (true) { }
 }
 
 struct init_level {
