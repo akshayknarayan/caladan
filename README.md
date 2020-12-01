@@ -31,6 +31,12 @@ WERROR_FLAGS += -Wno-implicit-fallthrough
 MODULE_CFLAGS += -Wno-implicit-fallthrough
 ```
 
+`build/config`: Change
+
+```
+CONFIG_MLX4=y
+```
+
 ```
 make submodules
 ```
