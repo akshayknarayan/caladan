@@ -14,6 +14,23 @@ For any questions about Caladan, please email <caladan@csail.mit.edu>.
 
 2) Set up submodules (e.g., DPDK, SPDK, and rdma-core).
 
+Run first half of `build/init_submodules.sh` (don't build dpdk)
+
+```
+apt install libnuma-dev libibverbs-dev
+```
+
+`shenango/dpdk/mk/toolchain/gcc/rte.vars.mk`: Add these lines
+```
+WERROR_FLAGS += -Wno-address-of-packed-member -Wno-format-overflow -Wno-maybe-uninitialized
+WERROR_FLAGS += -Wno-implicit-fallthrough
+```
+
+`kernel/linux/igb_uio/Makefile`: Add these lines
+```
+MODULE_CFLAGS += -Wno-implicit-fallthrough
+```
+
 ```
 make submodules
 ```
