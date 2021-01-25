@@ -36,12 +36,12 @@ export EXTRA_LDFLAGS=
 export PKG_CONFIG_PATH=
 
 
-echo building SPDK
-cd spdk
-git apply ../build/spdk.patch
-./configure
-make -j $CORES
-cd ..
+#echo building SPDK
+#cd spdk
+#git apply ../build/spdk.patch
+#./configure
+#make -j $CORES
+#cd ..
 
 echo building PCM
 cd deps/pcm
