@@ -14,11 +14,16 @@ fn main() {
     println!("cargo:rustc-link-lib=static=base");
     println!("cargo:rustc-link-lib=static=net");
     println!("cargo:rustc-link-lib=static=runtime");
-    println!("cargo:rustc-flags=-L ../..");
+    println!("cargo:rustc-flags=-L ./shenango-chunnel/caladan");
 
     // consult shared.mk for other libraries... sorry y'all.
     let output = Command::new("make")
-        .args(&["-f", "../../Makefile", "print-RUNTIME_LIBS", "ROOT_PATH=../../"])
+        .args(&[
+            "-f",
+            "../../Makefile",
+            "print-RUNTIME_LIBS",
+            "ROOT_PATH=../../",
+        ])
         .output()
         .unwrap();
     for t in String::from_utf8_lossy(&output.stdout).split_whitespace() {
