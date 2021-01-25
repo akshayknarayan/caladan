@@ -45,6 +45,7 @@ fn main() {
         .header("shenango.h")
         .blacklist_function("q.cvt(_r)?")
         .blacklist_function("strtold")
+        .generate_comments(false)
         // Finish the builder and generate the bindings.
         .generate()
         // Unwrap the Result and panic on failure.
