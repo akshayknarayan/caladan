@@ -43,8 +43,8 @@ fn main() {
         // The input header we would like to generate
         // bindings for.
         .header("shenango.h")
-        .blacklist_function("q.cvt(_r)?")
-        .blacklist_function("strtold")
+        .blocklist_function("q.cvt(_r)?")
+        .blocklist_function("strtold")
         .generate_comments(false)
         // Finish the builder and generate the bindings.
         .generate()
